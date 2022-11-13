@@ -28,7 +28,7 @@
       "executor": "@nx-plus/vue:dev-server",
       "options": {
         "browserTarget": "front:build",
-        "port": 8081,
+        "port": 8080,
         "devServer": {
           "proxy": {
             "^/api": {
