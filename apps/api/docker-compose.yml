@@ -3,13 +3,13 @@ services:
   mongo:
     image: mongo:latest
     ports:
-      - '27017:27017'
+      - '27018:27017'
     volumes:
       - auth-app-data:/data/db
     env_file:
-      - .docker.env
-    networks:
-      - mongodb
+      - .env
+    # networks:
+    #   - mongodb
 
   mongo-express:
     image: mongo-express
@@ -17,14 +17,14 @@ services:
     ports:
       - 8081:8081
     env_file:
-      - .docker.env
-    networks:
-      - mongodb
+      - .env
+    # networks:
+    #   - mongodb
     depends_on:
       - mongo
 
-networks:
-  mongodb:
-    driver: bridge
+# networks:
+#   mongodb:
+#     driver: bridge
 volumes:
   auth-app-data:
