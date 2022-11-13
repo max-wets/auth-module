@@ -3,17 +3,21 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
-   "node": "<=16.0.0"
+    "node": "<=16.17.0",
+    "npm": "8.18.0"
   },
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "serve": "nx run-many --target=serve --projects=front,api --parallel",
+    "serve:front": "nx run front:serve",
+    "serve:api": "nx run api:serve",
     "test": "nx test",
     "postinstall": "node node_modules/@nx-plus/vue/patch-nx-dep-graph.js"
   },
   "private": true,
   "devDependencies": {
-   "@nestjs/schematics": "^9.0.0",
+    "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
     "@nrwl/cli": "14.5.8",
     "@nrwl/cypress": "^14.5.8",
@@ -52,6 +56,11 @@
     "vue3-jest": "^27.0.0-alpha.1"
   },
   "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.0.0",
     "tslib": "^2.3.0",
     "vue": "^3.0.0",
     "vue-router": "^4.1.5",
