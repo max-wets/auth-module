@@ -27,7 +27,16 @@
     "serve": {
       "executor": "@nx-plus/vue:dev-server",
       "options": {
-        "browserTarget": "front:build"
+        "browserTarget": "front:build",
+        "port": 8081,
+        "devServer": {
+          "proxy": {
+            "^/api": {
+              "target": "http://localhost:3333",
+              "changeOrigin": true
+            }
+          }
+        }
       },
       "configurations": {
         "production": {
